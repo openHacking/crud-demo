@@ -76,7 +76,7 @@ public class TutorialController {
 
     }
 
-    @PutMapping("/tutorial/{id}")
+    @PutMapping("/tutorials/{id}")
     public ResponseEntity<Tutorial> updateTutorial(@PathVariable("id") long id, @RequestBody Tutorial tutorial) {
         Optional<Tutorial> tutorialData = tutorialRepository.findById(id);
 
