@@ -17,13 +17,19 @@ public class CrudDemoApplication {
 	@Bean
 	public WebMvcConfigurer corsConfigurer() {
 		return new WebMvcConfigurer() {
+			
+			/**
+			 * 
+			 * ref://https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/servlet/config/annotation/CorsRegistration.html
+			 * 
+			 * By default all headers are allowed.
+			 */
+			
 			@Override
-			public void addCorsMapping(CorsRegistry registry) {
+			public void addCorsMappings(CorsRegistry registry) {
 				registry.addMapping("/api")
 				.allowedOrigins("http://localhost:3000")
-				.allowedMethods("PUT", "DELETE")
-				.allowedHeaders("")
-				.exposedHeaders("")
+				.allowedMethods("*")
 				.allowCredentials(true)
 				.maxAge(3600);
 			}
